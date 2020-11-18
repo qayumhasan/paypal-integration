@@ -66,6 +66,68 @@ Now open config/app.php file and add service provider and aliase.
 We can also custom changes on srmklive/paypal package, so if you also want to changes then you can fire bellow command and get config file in config/paypal.php.
 ``php artisan vendor:publish --provider "Srmklive\PayPal\Providers\PayPalServiceProvider"``
 
+You can view paypal.php file like as bellow:
+config/paypal.php
+````
+<?php
+
+/**
+
+ * PayPal Setting & API Credentials
+
+ * Created by Raza Mehdi .
+
+ */
+
+     
+
+return [
+
+    'mode'    => env('PAYPAL_MODE', 'sandbox')
+
+    'sandbox' => [
+
+        'username'    => env('PAYPAL_SANDBOX_API_USERNAME', ''),
+
+        'password'    => env('PAYPAL_SANDBOX_API_PASSWORD', ''),
+
+        'secret'      => env('PAYPAL_SANDBOX_API_SECRET', ''),
+
+        'certificate' => env('PAYPAL_SANDBOX_API_CERTIFICATE', ''),
+
+        'app_id'      => 'APP-80W284485P519543T',
+
+    ],
+
+    'live' => [
+
+        'username'    => env('PAYPAL_LIVE_API_USERNAME', ''),
+
+        'password'    => env('PAYPAL_LIVE_API_PASSWORD', ''),
+
+        'secret'      => env('PAYPAL_LIVE_API_SECRET', ''),
+
+        'certificate' => env('PAYPAL_LIVE_API_CERTIFICATE', ''),
+
+        'app_id'      => '',
+
+    ],
+
+    'payment_action' => 'Sale',
+
+    'currency'       => env('PAYPAL_CURRENCY', 'USD'),
+
+    'billing_type'   => 'MerchantInitiatedBilling',
+
+    'notify_url'     => '',
+
+    'locale'         => '',
+
+    'validate_ssl'   => false,
+
+];
+````
+
 
 
 <!-- GETTING STARTED -->
