@@ -1,45 +1,13 @@
-<!--
-*** Thanks for checking out this README Template. If you have a suggestion that would
-*** make this better, please fork the repo and create a pull request or simply open
-*** an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
-
-
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
 * [INSTALLATION](#INSTALLATION)
 * [Add Routes](#Add_Routes)
-* [Create Controller](#Create_Controller)
-* [Create View File](#Create_View_File)
-* [Contributing](#contributing)
-* [License](#license)
-* [Contact](#contact)
-* [Acknowledgements](#acknowledgements)
+* [Create Controller](#Create Controller)
+* [Create View File](#Create View File)
+* [Add Configuration](#Add Configuration)
+
 
 
 
@@ -131,9 +99,9 @@ return [
 <!-- GETTING STARTED -->
 ## Add Routes
 
-```Route::get('payment', 'PayPalController@payment')->name('payment');```
-```Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');```
-```Route::get('payment/success', 'PayPalController@success')->name('payment.success');```
+```Route::get('payment', 'PayPalController@payment')->name('payment');```<br>
+```Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');```<br>
+```Route::get('payment/success', 'PayPalController@success')->name('payment.success');```<br>
 
 ### Create Controller
 
@@ -263,3 +231,14 @@ resources/views/products/welcome.blade.php
     </body>
 </html>
 ``````
+## Add Configuration
+In this step, we will set configuration value like paypal username, secret and certificate key in .env file.
+
+.env
+
+PAYPAL_MODE=sandbox
+PAYPAL_SANDBOX_API_USERNAME=sb-e2n47..
+PAYPAL_SANDBOX_API_PASSWORD=XKCGW...
+PAYPAL_SANDBOX_API_SECRET=A0EXIz....
+PAYPAL_CURRENCY=INR
+PAYPAL_SANDBOX_API_CERTIFICATE=
