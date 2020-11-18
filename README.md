@@ -4,9 +4,9 @@
 
 * [INSTALLATION](#INSTALLATION)
 * [Add Routes](#Add_Routes)
-* [Create Controller](#Create Controller)
-* [Create View File](#Create View File)
-* [Add Configuration](#Add Configuration)
+* [Create Controller](#Create_Controller)
+* [Create View File](#Create_View_File)
+* [Add Configuration](#Add_Configuration)
 
 
 
