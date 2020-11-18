@@ -33,7 +33,6 @@
 ## Table of Contents
 
 * [INSTALLATION](#INSTALLATION)
-  * [Built With](#built-with)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
@@ -51,13 +50,21 @@
 
 Install the package through [Composer](http://getcomposer.org/).
 
-For Laravel composer require srmklive/paypal
+For Laravel `composer require srmklive/paypal`
 
-### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
+Now open config/app.php file and add service provider and aliase.
+```
+'providers' => [
+
+	....
+
+	Srmklive\PayPal\Providers\PayPalServiceProvider::class
+
+]
+`````
+
+We can also custom changes on srmklive/paypal package, so if you also want to changes then you can fire bellow command and get config file in config/paypal.php.
+``php artisan vendor:publish --provider "Srmklive\PayPal\Providers\PayPalServiceProvider"``
 
 
 
