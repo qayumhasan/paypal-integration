@@ -32,7 +32,7 @@
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
-* [About the Project](#about-the-project)
+* [INSTALLATION](#INSTALLATION)
   * [Built With](#built-with)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
@@ -46,8 +46,8 @@
 
 
 
-<!-- ABOUT THE PROJECT -->
-## About The Project
+
+## INSTALLATION
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
