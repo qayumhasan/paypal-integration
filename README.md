@@ -33,10 +33,9 @@
 ## Table of Contents
 
 * [INSTALLATION](#INSTALLATION)
-* [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-* [Usage](#usage)
+* [Add Routes](#Add Routes)
+  
+* [Create Controller](#Create Controller)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
@@ -131,18 +130,89 @@ return [
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Add Routes
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+```Route::get('payment', 'PayPalController@payment')->name('payment');```
+```Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');```
+```Route::get('payment/success', 'PayPalController@success')->name('payment.success');```
 
-### Prerequisites
+### Create Controller
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-```sh
-npm install npm@latest -g
-```
+```php artisan make:controller PayPalController```
+
+After bellow command you will find new file in this path "app/Http/Controllers/PayPalController.php".
+
+app/Http/Controllers/PayPalController.php
+
+```` 
+<?php
+  
+namespace App\Http\Controllers;
+  
+use Illuminate\Http\Request;
+use Srmklive\PayPal\Services\ExpressCheckout;
+   
+class PayPalController extends Controller
+{
+    /**
+     * Responds with a welcome message with instructions
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function payment()
+    {
+        $data = [];
+        $data['items'] = [
+            [
+                'name' => 'ItSolutionStuff.com',
+                'price' => 100,
+                'desc'  => 'Description for ItSolutionStuff.com',
+                'qty' => 1
+            ]
+        ];
+  
+        $data['invoice_id'] = 1;
+        $data['invoice_description'] = "Order #{$data['invoice_id']} Invoice";
+        $data['return_url'] = route('payment.success');
+        $data['cancel_url'] = route('payment.cancel');
+        $data['total'] = 100;
+  
+        $provider = new ExpressCheckout;
+  
+        $response = $provider->setExpressCheckout($data);
+  
+        $response = $provider->setExpressCheckout($data, true);
+  
+        return redirect($response['paypal_link']);
+    }
+   
+    /**
+     * Responds with a welcome message with instructions
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cancel()
+    {
+        dd('Your payment is canceled. You can create cancel page here.');
+    }
+  
+    /**
+     * Responds with a welcome message with instructions
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function success(Request $request)
+    {
+        $response = $provider->getExpressCheckoutDetails($request->token);
+  
+        if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
+            dd('Your payment was successfully. You can create success page here.');
+        }
+  
+        dd('Something is wrong.');
+    }
+}
+``````
 
 ### Installation
 
