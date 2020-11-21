@@ -129,7 +129,7 @@ class PayPalController extends Controller
     public function payment()
     {
         $data = [];
-        $data['items'] = [
+        $data['items'][] = [
             [
                 'name' => 'ItSolutionStuff.com',
                 'price' => 100,
@@ -243,6 +243,17 @@ PAYPAL_SANDBOX_API_SECRET=A0EXIz....<BR>
 PAYPAL_CURRENCY=INR<BR>
 PAYPAL_SANDBOX_API_CERTIFICATE=<BR>
 https://www.itsolutionstuff.com/post/paypal-integration-in-laravel-6-exampleexample.html````
+
+
+## Error && Solution
+
+# if error in name: use $data['items'][]=[]  like this not linke this $data['items'] = []
+    ``` $data['items'][] = [
+            'name' => 'ItSolutionStuff.com',
+            'price' => $usercartdatas->total,
+            'desc'  => 'Durbar IT Payment',
+            'qty' => $usercartdatas->qty,
+        ];....
 
 
 
