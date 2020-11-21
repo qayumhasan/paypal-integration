@@ -236,10 +236,14 @@ In this step, we will set configuration value like paypal username, secret and c
 
 .env
 
-PAYPAL_MODE=sandbox
-PAYPAL_SANDBOX_API_USERNAME=sb-e2n47..
-PAYPAL_SANDBOX_API_PASSWORD=XKCGW...
-PAYPAL_SANDBOX_API_SECRET=A0EXIz....
-PAYPAL_CURRENCY=INR
-PAYPAL_SANDBOX_API_CERTIFICATE=
+PAYPAL_MODE=sandbox <BR>
+PAYPAL_SANDBOX_API_USERNAME=sb-e2n47..<BR>
+PAYPAL_SANDBOX_API_PASSWORD=XKCGW...<BR>
+PAYPAL_SANDBOX_API_SECRET=A0EXIz....<BR>
+PAYPAL_CURRENCY=INR<BR>
+PAYPAL_SANDBOX_API_CERTIFICATE=<BR>
 https://www.itsolutionstuff.com/post/paypal-integration-in-laravel-6-exampleexample.html
+
+
+
+
